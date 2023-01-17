@@ -20,7 +20,7 @@ $dotenv->safeLoad();
 
 $params = getopt('null', ["groupId:"]);
 
-$mongo = new Database('test', 'vk_members');
+$mongo = new Database($_ENV['DATABASE_NAME'], 'vk_members');
 $data = $mongo->fetchData([
     'group_id' => intval($params['groupId'])
 ]);
